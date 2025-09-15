@@ -11,6 +11,7 @@ def end():
 inventory = []
 # this doesn't do anything right now, im working on it. 
 # Follow up to the above note, no matter what I try it keeps breaking my code.
+# random thing idk
 
 
 def BoxHermitEnding():
