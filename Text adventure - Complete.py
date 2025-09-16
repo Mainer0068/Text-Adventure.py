@@ -17,6 +17,10 @@ def SecretEnding():
     print("This... shouldn't be possible...")
     end()
 
+def JoshuaEnd():
+    print("Congradulations, you found the Joshua ending, and yes I prepared this for when you typed potato.")
+    t.sleep(1)
+    end()
 
 def BoxHermitEnding():
     print("You never left the box... you sat in a dark box for the next week until you keeled over and died from starvation.")
@@ -75,41 +79,59 @@ lookaround = input("Do you want to look around? \n(y/n):")
 
 if lookaround.casefold() in ["n", "no"]:
     print("Good job, you remembered it's dark, and you can't see.")
-else:
+if lookaround.lower() in ["Potato", "potato"]:
+    JoshuaEnd()
+if lookaround.lower() in ["yes", "Yes"]:
     print("It's dark, dummy.")
+    
+    
 
 feelaround = input("Would you like to feel around? \n(y/n):")
 if feelaround.casefold() in ["y", "yes"]:
     print("You realize you are sitting in a cardboard box, when touching the floor you feel a bandana and an eye patch.")
-else:
+if feelaround.lower() in ["potato", "Potato"]:
+    JoshuaEnd()
+if feelaround.lower() in ["n", "no"]:
     BoxHermitEnding()
 
 bandanaEyePatch = input("Do you put them on? \n(y/n):")
 if bandanaEyePatch.casefold() in ["y", "yes"]:
     BigBossEnding()
+if bandanaEyePatch.lower() in ["potato", "Potato"]:
+    JoshuaEnd()
 else:
     print("For some reason you find them nostalgic, but you leave them where they are.")
 
 openbox = input("Would you like to exit the Cardboard Box? \n(y/n):")
 if openbox.casefold() in ["n", "no"]:
     BoxHermitEnding()
+if openbox.lower() in ["potato", "Potato"]:
+    JoshuaEnd()
 else:
+    openbox.lower() in ["y", "yes"]
     print("You have left the box, the room is large, and there is a crashed Go-Kart in the corner; a tattered red cap rests next to it; the letter M engraved on it.")
 
+
 leavebox = input("Would you like to investigate?\n (y/n):")
-if leavebox.casefold() in ["check inv", "check inventory"]:
-    print("wait what? Where did you get a tool box?")
-    t.sleep(1)
-    print("\n I didn't give that to you... \n")
-    inventory.append("Tool Box")
+if leavebox.casefold() in ["potato", "Potato"]:
+    JoshuaEnd()
+    if leavebox.lower() in ["check inv", "check inventory"]:
+        print("wait what? Where did you get a tool box?")
+        t.sleep(1)
+        print("\n I didn't give that to you... \n")
+        inventory.append("Tool Box")
 
 if leavebox.lower() in ["y", "yes", "check inv", "check inventory"]:
     print("You approach the Go-kart, it's totaled, theres no way you can repair this. There is also a peculiar banana peel a little to your right.")
     while True:
         gokart = input(
-            "Would you like to investigate the banana peel? Or try something else?\n (y/n): ").casefold()
+            "Would you like to investigate the banana peel? Or try something else?\n (y/n): ").lower()
+        
         if gokart in ["y", "yes"]:
             StupidDeathEnd()
+            break
+        if gokart in ["potato", "Potato"]:
+            JoshuaEnd()
             break
         elif gokart == "repair go-kart":
             if "Tool Box" in inventory:
@@ -117,22 +139,29 @@ if leavebox.lower() in ["y", "yes", "check inv", "check inventory"]:
                 break
             else:
                 print("\n Are you illiterate or- no you managed to make it here.\n")
-        elif gokart.lower() in ["n", "no"]:
+        if gokart.casefold() in ["n", "no"]:
             print("You step away from the Banana Peel, probably the safest bet, Mario Kart has taught you well.")
             break
+      
+            
 
 if leavebox.lower() in ["n", "no"]:
     print("you choose to leave the go-kart alone, walking around the room you spot a semi truck")
     truck = input("do you approach the semi?\n (y/n):")
     if truck.casefold() in ["y", "yes"]:
         TransformersEnd()
-    else:
+    elif truck.lower() in ["potato", "Potato"]:
+        JoshuaEnd()
+    elif truck.lower() in ["n", "no"]:
         darknessEnd()
+        
 
 bananaPeel = input(
     "'HALT', someone yell's from behind you, do you want to turn around?\n (y/n):")
 if bananaPeel.casefold() in ["y", "yes"]:
     print("You see a soldier pointing a rifle at you, he looks scared, scanning you up and down, shaking lightly.")
+if bananaPeel.lower() in ["potato", "Potato"]:
+    JoshuaEnd()
 
 Soldier = input("do you trust the soldier?\n (y/n):")
 if Soldier.casefold() in ["y", "yes"]:
@@ -143,3 +172,5 @@ elif Soldier.casefold() in ["n", "no"]:
     print("The soldier is then ripped apart by something faster than you can see.")
     t.sleep(3)
     badend()
+elif Soldier.lower() in ["potato", "Potato"]:
+    JoshuaEnd()
